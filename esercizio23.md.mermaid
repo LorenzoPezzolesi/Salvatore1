@@ -1,0 +1,42 @@
+classDiagram
+    class Utente {
+        + nome_utente : str
+        + email : str
+        + password : str
+        + profilo : str
+		+ foto : List[Foto]
+        registrati() None
+        crea_profilo(profilo : str) None
+        caricaFoto(foto : Foto) None
+        segui(utente : Utente) None
+        commenta(foto : Foto, commento : Commento) None
+    }
+
+    class Foto {
+        + id : int
+        + titolo : str
+        + descrizione : str
+        + data_caricamento : datetime
+        + utente : Utente
+        + album : Album
+    }
+
+    class Album {
+        + titolo : str
+        + descrizione : str
+        + utente : Utente
+        + foto : List[Foto]
+		aggiungi_foto(foto : Foto) bool
+		rimuovi_foto(foto : Foto) bool
+    }
+
+    class Commento {
+        + utente : Utente
+        + commento : str
+        + foto : Foto
+    }
+
+    Utente "1" --> "N" Foto : pubblica
+    Commento "N" <-- "1" Foto : ha
+    Foto "N" --> "1" Album : fa parte di
+    Utente "1" --> "N" Album : crea 

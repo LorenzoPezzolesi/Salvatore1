@@ -1,0 +1,43 @@
+classDiagram
+    class Prodotto {
+        + id : int
+        + nome : str
+        + descrizione : str
+        + prezzo : float
+        + categoria : str
+        + recensioni : List[Recensione]
+    }
+    class Cliente {
+        + id : int
+        + nome : str
+        + cognome : str
+        + email : str
+        + indirizzo : str
+        + ordini : List[Ordine]
+        + recensioni : List[Recensione]
+    }
+    class Ordine {
+        + id : int
+        + data_ordine : datetime
+        + data_consegna_prevista : datetime
+        + stato : Stato
+        + prodotti : List[Prodotto]
+    }
+    class Stato {
+        IN_ELABORAZIONE
+        SPEDITO
+        CONSEGNATO
+    }
+    class Recensione {
+        + id : int
+        + punteggio : int
+        + data : datetime
+        + commento : str
+        + id_cliente : int
+    }
+    
+    Cliente "1" -- "N" Ordine : fa
+    Prodotto "N" -- "N" Ordine : ha N Prodotto | Ordini
+    Cliente "1" -- "N" Recensione : fa
+    Prodotto "1" -- "N" Recensione : ha
+    Ordine "N" -- "1" Stato : stato_attuale
