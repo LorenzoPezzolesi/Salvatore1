@@ -1,0 +1,18 @@
+```mermaid
+classDiagram
+    class Stanza {
+    + nome: str
+    + superficie: int
+    + casa: None
+    }
+
+    class Casa {
+    + indirizzo: str
+    + proprietario: str
+    + stanze: list
+    + aggiungi_stanza(stanza: Stanza)
+    }
+
+    Casa "1" --> "*" Stanza : ha/possiede
+
+```
