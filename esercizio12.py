@@ -2,19 +2,19 @@ class Motore:
 	def __init__(self, numero_seriale : str, tipo : str):
 		self.numero_seriale = numero_seriale
 		self.tipo = tipo
-		self.auto = None
+		self.auto = None #
 
 class Auto:
 	def __init__(self, marca : str, modello : str):
 		self.marca = marca
 		self.modello = modello
-		self.motore = None
+		self.motore = None #
 
 	def associa_motore(self, motore : Motore):
-		# non ho un motore E ( motore non ha auto O motore assegnato a questa auto - self )
+		# se non ho un motore E ( motore non ha auto O motore assegnato a questa auto - self )
 		if self.motore is None and (motore.auto is None or motore.auto == self):
 			self.motore = motore
-			motore.auto = self
+			motore.auto = self #
 
 # Creazione delle istanze
 auto1 = Auto("Fiat", "500")

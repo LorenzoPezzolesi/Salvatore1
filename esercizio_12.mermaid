@@ -1,0 +1,18 @@
+```mermaid
+classDiagram
+    class Motore {
+    + numero_seriale: str
+    + tipo: str
+    + auto: None
+    }
+
+    class Auto{
+    + marca: str
+    + modello: str
+    + motore: None
+    + associa_motore(motore: Motore)
+    }
+
+    Auto "1" --> "1" Motore
+
+```
