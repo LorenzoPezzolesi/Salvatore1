@@ -1,9 +1,7 @@
 from datetime import datetime
-
-
 class Animale:
     def __init__(self, codice: str, nome: str, eta: int, peso: float):
-        self.codiceIdentificativo = codice
+        self.codice = codice
         self.nome = nome
         self.eta = eta
         self.peso = peso
@@ -192,11 +190,11 @@ def main():
 
     print("\nAnimali nella Savana:")
     for animale in zoo.get_animali_habitat(savana):
-        print(f"- {animale.nome} ({animale.codiceIdentificativo})")
+        print(f"- {animale.nome} ({animale.codice})")
 
     print("\nAnimali nel Rettilario:")
     for animale in zoo.get_animali_habitat(rettilario):
-        print(f"- {animale.nome} ({animale.codiceIdentificativo})")
+        print(f"- {animale.nome} ({animale.codice})")
 
     print("\nEtà media per habitat:")
     for habitat, eta_media in zoo.calcola_eta_media_per_habitat().items():
@@ -213,23 +211,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Tentativo di mettere serpente in savana: Fallito
-
-# === Stato dello Zoo ===
-
-# Animali nella Savana:
-# - Simba (M001)
-# - Melman (M002)
-
-# Animali nel Rettilario:
-# - Kaa (R001)
-
-# Età media per habitat:
-# - Savana Africana: 6.0 anni
-# - Rettilario: 3.0 anni
-
-# Storico visite di Simba:
-# - Data: 2025-02-11 15:27:06.489484
-#   Veterinario: Mario Rossi
-#   Diagnosi: Controllo di routine
-#   Trattamento: Somministrazione vaccino annuale
