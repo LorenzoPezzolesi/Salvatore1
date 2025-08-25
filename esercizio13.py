@@ -17,8 +17,6 @@ class Casa:
 			return True
 		else:
 			return False
-		
-
 
 # Creazione dell'istanza di Casa
 casa = Casa("Via delle Rose 15", "Maria Rossi")
