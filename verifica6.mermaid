@@ -1,0 +1,59 @@
+```mermaid
+classDiagram
+
+	class Fornitore {
+		- ragione_sociale : str
+		- partita_IVA : str
+		- indirizzo : str
+		- commesse : list[Commessa]
+	}
+
+	class Commessa {
+		- fornitore : Fornitore
+		- data : date
+		- schede : list[Scheda]
+		- capi : list[Capo]
+	}
+
+	class Capo {
+		- taglia : str
+		- colore : str
+		- modello : Modello
+		- commessa : Commessa
+	}
+
+	class Modello {
+		- nome : str
+		- marca : Marca
+		%% non indispensabili (sotto)
+		- capi : list[Capo]
+		- schede : list[Scheda]
+	}
+
+	class Marca {
+		- nome : str
+		- modelli : list[Modelli]
+	}
+
+	class Personale {
+		- nome : str
+		- cognome : str
+		- eta : int
+		- schede : list[Scheda]
+	}
+
+	class Scheda {
+		- commessa : Commessa
+		- controllore : Personale
+		- modello : Modello
+	}
+
+	Capo "*" -- "1" Modello : modello
+	Commessa "1" -- "*" Capo : interno_a
+	Scheda "*" -- "1" Personale
+	Modello "*" -- "1" Marca
+	Fornitore "1" -- "*" Commessa
+	Commessa "1" -- "*" Scheda
+	Scheda "*" -- "1" Modello
+
+```
