@@ -1,0 +1,56 @@
+```mermaid
+classDiagram
+    class Ospedale {
+        + reparti : list[Reparto]
+        + persone : list[Persona]
+        + medici : list[Medico]
+        - pazienti : list[Paziente]
+    }
+
+    class Reparto {
+        + nome_reparto: str
+        - numero_tot_posti_letto: int
+    }
+
+    class Persona {
+        + nome:str
+        + cognome:str
+        - codice_fiscale:str
+    }
+
+    class Medico {
+        + nome:str
+        + cognome:str
+        - codice_fiscale:str
+        + matricola:int
+        + specializzazione:str
+        + reparto_lavorativo:str
+    }
+
+    class Paziente {
+        + nome: str
+        + cognome: str
+        - codice_fiscale: str
+        + bisogno_di_cure() bool
+    }
+
+    class CartellaClinica {
+        + pazienti: list[Paziente]
+        + numero_univoco: int
+    }
+
+    class Ricovero {
+        -data_inizio: datetime
+        -diagnosi: str
+        +pazienti: list[Paziente]
+    }
+
+    Ospedale "1"-- "*" Reparto
+    Persona  <|--  Medico
+    Persona  <|--  Paziente 
+    Ricovero "1" -- "*" Paziente
+    Paziente "*" -- "1" Reparto
+    Paziente "*" -- "*" CartellaClinica
+    Medico "1" -- "1" Reparto
+    Paziente "*" -- "1" Medico
+```
