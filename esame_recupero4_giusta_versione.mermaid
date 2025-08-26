@@ -1,0 +1,47 @@
+```mermaid
+classDiagram
+    class Persona {
+        -String codiceFiscale
+        -String nome
+        -String cognome
+    }
+    
+    class Medico {
+        -String matricola
+        -String specializzazione
+        +ricoveraPaziente(paziente: Paziente, reparto: Reparto, diagnosi: String): boolean
+        +dimettePaziente(ricovero: Ricovero): 
+    }
+    
+    class Paziente {
+        -String codiceCartellaClinica
+    }
+    
+    class Reparto {
+        -String nome
+        -int postiLettoTotali
+        -int postiLettoOccupati
+        +haPostiLiberi(): boolean
+        +occupaPosto(): 
+        +liberaPosto(): 
+    }
+    
+    class Ricovero {
+        -Date dataInizio
+        -Date dataFine
+        -String diagnosi
+        +iniziaRicovero(dataInizio: Date, diagnosi: String): 
+        +terminaRicovero(dataFine: Date): 
+    }
+    
+    %% Relazioni di ereditarietà
+    Persona <|-- Medico
+    Persona <|-- Paziente
+    
+    %% Relazioni di associazione
+    Medico "1" --> "1" Reparto : lavora_in
+    Ricovero "0..*" --> "1" Paziente : riguarda
+    Ricovero "0..*" --> "1" Medico : curato_da
+    Ricovero "0..*" --> "1" Reparto : avviene_in
+
+```
