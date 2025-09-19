@@ -16,6 +16,7 @@ erDiagram
         int id PK
         str nome
         str cognome
+        str email
         str password
     }
 
