@@ -30,7 +30,7 @@ erDiagram
         float quantità_prodotta
     }
 
-APIARIO }|--|{  MIELE : produce
+APIARIO }|--|{ MIELE : produce
 APICOLTORE }|--|{ APIARIO : ha
 TIPOLOGIA_MIELE }|--|{ MIELE : classifica
 
