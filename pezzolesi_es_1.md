@@ -26,6 +26,8 @@ erDiagram
         str comune
         str provincia
         str regione
+        int anno
+        float quantità_prodotta
     }
 
 APIARIO }|--|{  MIELE : produce
