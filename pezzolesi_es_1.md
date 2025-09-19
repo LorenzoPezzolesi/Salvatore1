@@ -33,6 +33,6 @@ erDiagram
 
 APIARIO }|--|| MIELE : produce
 APICOLTORE ||--|{ APIARIO : ha
-TIPOLOGIA_MIELE }|--|{ MIELE : classifica
+TIPOLOGIA_MIELE ||--|{ MIELE : classifica
 
 ```
