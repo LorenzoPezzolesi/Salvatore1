@@ -1,5 +1,11 @@
 ```mermaid
 erDiagram
+
+    TIPOLOGIA_MIELE {
+        int id PK
+        str nome 
+    }
+
     MIELE {
         int id PK
         str denominazione
@@ -9,6 +15,8 @@ erDiagram
     APICOLTORE {
         int id PK
         str nome
+        str cognome
+        str password
     }
 
     APIARIO {
@@ -20,7 +28,8 @@ erDiagram
         str regione
     }
 
-APIARIO }|--|{ MIELE : produce
+APIARIO }|--|{  MIELE : produce
 APICOLTORE }|--|{ APIARIO : ha
+TIPOLOGIA_MIELE }|--|{ MIELE : classifica
 
 ```
